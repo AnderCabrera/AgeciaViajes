@@ -5,6 +5,7 @@
 package org.andercabrera.vistaAdmin;
 
 import org.andercabrera.vista.*;
+import org.andercabrera.vistaAdmin.*;
 import java.awt.Color;
 
 import org.andercabrera.vista.*;
@@ -15,6 +16,8 @@ import org.andercabrera.vista.*;
  */
 public class MenuAdmin extends javax.swing.JFrame {
 
+    AgregarVuelos vuelos = new AgregarVuelos();
+    VerVuelos verVuelos = new VerVuelos();
 
     /**
      * Creates new form Menu
@@ -82,6 +85,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         vuelosText.setForeground(new java.awt.Color(255, 255, 255));
         vuelosText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vuelosText.setText("Agregar vuelos");
+        vuelosText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vuelosTextMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelVuelosLayout = new javax.swing.GroupLayout(panelVuelos);
         panelVuelos.setLayout(panelVuelosLayout);
@@ -101,6 +109,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         hotelesText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hotelesText.setText("Ver vuelos");
         hotelesText.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        hotelesText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hotelesTextMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelHotelesLayout = new javax.swing.GroupLayout(panelHoteles);
         panelHoteles.setLayout(panelHotelesLayout);
@@ -205,15 +218,15 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
                 .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(principalPanelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
+                        .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(panelHoteles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(112, 112, 112))
-                        .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(112, 112, 112))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
                         .addComponent(panelSignout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55))))
@@ -260,6 +273,16 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void signoutTextMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutTextMouseReleased
         signoutText.setForeground(Color.white);
     }//GEN-LAST:event_signoutTextMouseReleased
+
+    private void vuelosTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vuelosTextMouseClicked
+        this.setVisible(false);
+        vuelos.setVisible(true);
+    }//GEN-LAST:event_vuelosTextMouseClicked
+
+    private void hotelesTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hotelesTextMouseClicked
+        this.setVisible(false);
+        verVuelos.setVisible(true);
+    }//GEN-LAST:event_hotelesTextMouseClicked
 
     private void signoutTextMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_signoutTextMouseClicked
         Login login = new Login();
