@@ -15,13 +15,14 @@ public class controladorLogin {
     private ArrayList<String> users = new ArrayList<String>();
     private ArrayList<String> passwords = new ArrayList<String>();
     boolean login = false;
+    boolean admin = true;
     private static controladorLogin instance = null;
 
-    public boolean getLogin() {
+    public boolean getBooleanLogin() {
         return login;
     }
 
-    public void setLogin(boolean login) {
+    public void setBooleanLogin(boolean login) {
         this.login = login;
     }
     
@@ -55,8 +56,10 @@ public class controladorLogin {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).equals(name) && passwords.get(i).equals(password)) {
                 login = true;
-                break;
+            } else {
+                login = false;
             }
+            break;
         }
         return login;
     }

@@ -6,6 +6,7 @@ package org.andercabrera.vista;
 
 import org.andercabrera.login.*;
 import org.andercabrera.vista.*;
+import org.andercabrera.vistaAdmin.*;
 import java.awt.Color;
 
 /**
@@ -13,8 +14,13 @@ import java.awt.Color;
  * @author Deran
  */
 public class Login extends javax.swing.JFrame {
+
     private controladorLogin controlador = controladorLogin.getInstance();
+    private MenuAdmin menuAdmin = new MenuAdmin();
+
     private Menu menu = new Menu();
+    private String user = "Ander";
+    private String password = "Cabrera123";
 
     public Login() {
         initComponents();
@@ -218,7 +224,11 @@ public class Login extends javax.swing.JFrame {
 
     private void enterTextMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_enterTextMouseClicked
         controlador.login(userTextField.getText(), String.valueOf(passwordTextField.getText()));
-        if (controlador.getLogin() == true) {
+
+        if (userTextField.getText().equals(user) && String.valueOf(passwordTextField.getText()).equals(password)) {
+            this.setVisible(false);
+            menuAdmin.setVisible(true);
+        } else if (controlador.getBooleanLogin() == true) {
             this.setVisible(false);
             menu.setVisible(true);
         } else {
