@@ -4,6 +4,8 @@
  */
 package org.andercabrera.modelo;
 
+import java.util.ArrayList;
+
 /**
  * @author Deran
  */
@@ -16,6 +18,7 @@ public class Vuelo {
     private int id;
     private int precio;
     private int numeroPasajeros;
+    ArrayList<Vuelo> listaVuelos = new ArrayList<Vuelo>();
     
     public Vuelo() {
     }
