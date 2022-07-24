@@ -56,10 +56,10 @@ public class controladorLogin {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).equals(name) && passwords.get(i).equals(password)) {
                 login = true;
+                break;
             } else {
                 login = false;
             }
-            break;
         }
         return login;
     }
