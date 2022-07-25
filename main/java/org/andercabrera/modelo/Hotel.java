@@ -1,8 +1,10 @@
- /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/*
+* Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+* Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+*/
 package org.andercabrera.modelo;
+
+import java.util.ArrayList;
 
 /**
  * @author Ander Cabrera
@@ -10,27 +12,35 @@ package org.andercabrera.modelo;
 public class Hotel {
     private String nombreHotel;
     private String paisHotel;
-    private String direccionHotel;
-    private String emailHotel;
     private String ciudadHotel;
-    private int idHotel;
+    private int Precio;
     private int numeroEstrellas;
-    private int categoriaHotel;
     private int telefonoHotel;
+    private int idHotel;
+    ArrayList<Hotel> listaHoteles = new ArrayList<Hotel>();
 
-    public Hotel() {
+    // singleton
+    private static Hotel instance = null;
+
+    public static Hotel getInstance() {
+        if (instance == null) {
+            instance = new Hotel();
+        }
+        return instance;
     }
 
-    public Hotel(String nombreHotel, String paisHotel, String direccionHotel, String emailHotel, String ciudadHotel, int idHotel, int numeroEstrellas, int categoriaHotel, int telefonoHotel) {
+    public Hotel() {
+
+    }
+
+    public Hotel(String nombreHotel, String paisHotel, String ciudadHotel, int Precio, int numeroEstrellas, int telefonoHotel, int idHotel) {
         this.nombreHotel = nombreHotel;
         this.paisHotel = paisHotel;
-        this.direccionHotel = direccionHotel;
-        this.emailHotel = emailHotel;
         this.ciudadHotel = ciudadHotel;
-        this.idHotel = idHotel;
+        this.Precio = Precio;
         this.numeroEstrellas = numeroEstrellas;
-        this.categoriaHotel = categoriaHotel;
         this.telefonoHotel = telefonoHotel;
+        this.idHotel = idHotel;
     }
 
     public String getNombreHotel() {
@@ -49,28 +59,20 @@ public class Hotel {
         this.paisHotel = paisHotel;
     }
 
-    public String getDireccionHotel() {
-        return direccionHotel;
-    }
-
-    public void setDireccionHotel(String direccionHotel) {
-        this.direccionHotel = direccionHotel;
-    }
-
-    public String getEmailHotel() {
-        return emailHotel;
-    }
-
-    public void setEmailHotel(String emailHotel) {
-        this.emailHotel = emailHotel;
-    }
-
     public String getCiudadHotel() {
         return ciudadHotel;
     }
 
     public void setCiudadHotel(String ciudadHotel) {
         this.ciudadHotel = ciudadHotel;
+    }
+
+    public int getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(int Precio) {
+        this.Precio = Precio;
     }
 
     public int getIdHotel() {
@@ -89,14 +91,6 @@ public class Hotel {
         this.numeroEstrellas = numeroEstrellas;
     }
 
-    public int getCategoriaHotel() {
-        return categoriaHotel;
-    }
-
-    public void setCategoriaHotel(int categoriaHotel) {
-        this.categoriaHotel = categoriaHotel;
-    }
-
     public int getTelefonoHotel() {
         return telefonoHotel;
     }
@@ -105,4 +99,7 @@ public class Hotel {
         this.telefonoHotel = telefonoHotel;
     }
 
+    public ArrayList<Hotel> getListaHoteles() {
+        return listaHoteles;
+    }
 }

@@ -16,7 +16,6 @@ import org.andercabrera.vista.*;
  */
 public class MenuAdmin extends javax.swing.JFrame {
 
-    AgregarVuelos vuelos = new AgregarVuelos();
     VerVuelos verVuelos = new VerVuelos();
 
     /**
@@ -50,6 +49,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
+        setResizable(false);
 
         principalPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -133,6 +133,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Ver hoteles");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -151,6 +157,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Ver usuarios");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -224,6 +231,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         this.setVisible(false);
         verVuelos.setVisible(true);
     }//GEN-LAST:event_hotelesTextMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        VerHoteles verHoteles = new VerHoteles();
+        this.setVisible(false);
+        verHoteles.setVisible(true);
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     private void signoutTextMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_signoutTextMouseClicked
         Login login = new Login();

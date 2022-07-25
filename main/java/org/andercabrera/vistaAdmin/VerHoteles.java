@@ -4,24 +4,26 @@
  */
 package org.andercabrera.vistaAdmin;
 
-import org.andercabrera.modelo.Vuelo;
-import java.awt.Color;
+import org.andercabrera.vista.*;
+import org.andercabrera.modelo.*;
+import org.andercabrera.vistaAdmin.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
+import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Deran
  */
-public class VerVuelos extends javax.swing.JFrame {
-    Vuelo vuelo = Vuelo.getInstance();
+public class VerHoteles extends javax.swing.JFrame {
+
+    Hotel hotel = Hotel.getInstance();
 
     /**
-     * Creates new form VerVuelos
+     * Creates new form VerHoteles
      */
-    public VerVuelos() {
+    public VerHoteles() {
         initComponents();
     }
 
@@ -32,8 +34,6 @@ public class VerVuelos extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -42,29 +42,29 @@ public class VerVuelos extends javax.swing.JFrame {
         headerTxt = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         origenTxt = new javax.swing.JLabel();
-        origenTextField = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         destinoTxt = new javax.swing.JLabel();
-        destinoTextField = new javax.swing.JTextField();
+        pais = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         aerolineaTxt = new javax.swing.JLabel();
-        aerolineaTextField = new javax.swing.JTextField();
+        ciudad = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         claseTxt = new javax.swing.JLabel();
-        claseTextField = new javax.swing.JTextField();
+        precio = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         numeroPasajerosTxt = new javax.swing.JLabel();
-        numeroPasajerosTextField = new javax.swing.JTextField();
+        telefono = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         precioTxt = new javax.swing.JLabel();
-        precioTextField = new javax.swing.JTextField();
+        estrellas = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         idTxt = new javax.swing.JLabel();
         idTextField = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaVuelos = new javax.swing.JTable();
+        tablaHoteles = new javax.swing.JTable();
         agregarBtn = new javax.swing.JButton();
         actualizarBtn = new javax.swing.JButton();
         eliminarBtn = new javax.swing.JButton();
@@ -74,6 +74,11 @@ public class VerVuelos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setResizable(false);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -82,7 +87,7 @@ public class VerVuelos extends javax.swing.JFrame {
         headerTxt.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         headerTxt.setForeground(new java.awt.Color(255, 255, 255));
         headerTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headerTxt.setText("Vuelos");
+        headerTxt.setText("Hoteles");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -100,10 +105,10 @@ public class VerVuelos extends javax.swing.JFrame {
         origenTxt.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         origenTxt.setForeground(new java.awt.Color(255, 255, 255));
         origenTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        origenTxt.setText("Origen");
+        origenTxt.setText("Nombre hotel");
 
-        origenTextField.setBackground(new java.awt.Color(255, 255, 255));
-        origenTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nombre.setBackground(new java.awt.Color(255, 255, 255));
+        nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -112,7 +117,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(origenTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(origenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         jPanel3Layout.setVerticalGroup(
@@ -120,7 +125,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addComponent(origenTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(origenTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -129,10 +134,10 @@ public class VerVuelos extends javax.swing.JFrame {
         destinoTxt.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         destinoTxt.setForeground(new java.awt.Color(255, 255, 255));
         destinoTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        destinoTxt.setText("Destino");
+        destinoTxt.setText("Pais hotel");
 
-        destinoTextField.setBackground(new java.awt.Color(255, 255, 255));
-        destinoTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pais.setBackground(new java.awt.Color(255, 255, 255));
+        pais.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -141,14 +146,14 @@ public class VerVuelos extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(destinoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(destinoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(destinoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(pais, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(destinoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -158,10 +163,10 @@ public class VerVuelos extends javax.swing.JFrame {
         aerolineaTxt.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         aerolineaTxt.setForeground(new java.awt.Color(255, 255, 255));
         aerolineaTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        aerolineaTxt.setText("Aerolinea");
+        aerolineaTxt.setText("Ciudad hotel");
 
-        aerolineaTextField.setBackground(new java.awt.Color(255, 255, 255));
-        aerolineaTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ciudad.setBackground(new java.awt.Color(255, 255, 255));
+        ciudad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -170,7 +175,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(aerolineaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(aerolineaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         jPanel5Layout.setVerticalGroup(
@@ -180,7 +185,7 @@ public class VerVuelos extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(aerolineaTextField)
+                .addComponent(ciudad)
                 .addContainerGap())
         );
 
@@ -189,10 +194,10 @@ public class VerVuelos extends javax.swing.JFrame {
         claseTxt.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         claseTxt.setForeground(new java.awt.Color(255, 255, 255));
         claseTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        claseTxt.setText("Clase");
+        claseTxt.setText("Precio");
 
-        claseTextField.setBackground(new java.awt.Color(255, 255, 255));
-        claseTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        precio.setBackground(new java.awt.Color(255, 255, 255));
+        precio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -201,7 +206,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(claseTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(claseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         jPanel6Layout.setVerticalGroup(
@@ -209,7 +214,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addComponent(claseTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(claseTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(precio, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -218,10 +223,10 @@ public class VerVuelos extends javax.swing.JFrame {
         numeroPasajerosTxt.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         numeroPasajerosTxt.setForeground(new java.awt.Color(255, 255, 255));
         numeroPasajerosTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        numeroPasajerosTxt.setText("No. Pasajeros");
+        numeroPasajerosTxt.setText("Telefono hotel");
 
-        numeroPasajerosTextField.setBackground(new java.awt.Color(255, 255, 255));
-        numeroPasajerosTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        telefono.setBackground(new java.awt.Color(255, 255, 255));
+        telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -230,7 +235,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(numeroPasajerosTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(numeroPasajerosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         jPanel7Layout.setVerticalGroup(
@@ -240,7 +245,7 @@ public class VerVuelos extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(numeroPasajerosTextField)
+                .addComponent(telefono)
                 .addContainerGap())
         );
 
@@ -249,10 +254,10 @@ public class VerVuelos extends javax.swing.JFrame {
         precioTxt.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         precioTxt.setForeground(new java.awt.Color(255, 255, 255));
         precioTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        precioTxt.setText("Precio");
+        precioTxt.setText("Numero estrellas");
 
-        precioTextField.setBackground(new java.awt.Color(255, 255, 255));
-        precioTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        estrellas.setBackground(new java.awt.Color(255, 255, 255));
+        estrellas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -261,7 +266,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(precioTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(precioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(estrellas, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         jPanel8Layout.setVerticalGroup(
@@ -269,7 +274,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addComponent(precioTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(precioTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(estrellas, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -334,9 +339,9 @@ public class VerVuelos extends javax.swing.JFrame {
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
         );
 
-        tablaVuelos.setBackground(new java.awt.Color(255, 255, 255));
-        tablaVuelos.setForeground(new java.awt.Color(0, 0, 0));
-        tablaVuelos.setModel(new javax.swing.table.DefaultTableModel(
+        tablaHoteles.setBackground(new java.awt.Color(255, 255, 255));
+        tablaHoteles.setForeground(new java.awt.Color(0, 0, 0));
+        tablaHoteles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -359,12 +364,12 @@ public class VerVuelos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tablaVuelos.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaHoteles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaVuelosMouseClicked(evt);
+                tablaHotelesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tablaVuelos);
+        jScrollPane1.setViewportView(tablaHoteles);
 
         agregarBtn.setBackground(new java.awt.Color(0, 153, 0));
         agregarBtn.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -377,11 +382,6 @@ public class VerVuelos extends javax.swing.JFrame {
                 agregarBtnMouseClicked(evt);
             }
         });
-        agregarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarBtnActionPerformed(evt);
-            }
-        });
 
         actualizarBtn.setBackground(new java.awt.Color(0, 204, 51));
         actualizarBtn.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -392,11 +392,6 @@ public class VerVuelos extends javax.swing.JFrame {
         actualizarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 actualizarBtnMouseClicked(evt);
-            }
-        });
-        actualizarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizarBtnActionPerformed(evt);
             }
         });
 
@@ -443,7 +438,7 @@ public class VerVuelos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(234, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(eliminarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
                         .addComponent(eliminarTodoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -503,7 +498,7 @@ public class VerVuelos extends javax.swing.JFrame {
                         .addComponent(eliminarTodoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -512,8 +507,7 @@ public class VerVuelos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,165 +517,141 @@ public class VerVuelos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tablaVuelosMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tablaVuelosMouseClicked
+    private void tablaHotelesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaHotelesMouseClicked
         // TODO add your handling code here:
-        int fila = tablaVuelos.getSelectedRow();
+        int fila = tablaHoteles.getSelectedRow();
         if (fila >= 0) {
-            idTextField.setText(tablaVuelos.getValueAt(fila, 0).toString());
-            origenTextField.setText(tablaVuelos.getValueAt(fila, 1).toString());
-            destinoTextField.setText(tablaVuelos.getValueAt(fila, 2).toString());
-            aerolineaTextField.setText(tablaVuelos.getValueAt(fila, 3).toString());
-            claseTextField.setText(tablaVuelos.getValueAt(fila, 4).toString());
-            precioTextField.setText(tablaVuelos.getValueAt(fila, 5).toString());
-            numeroPasajerosTextField.setText(tablaVuelos.getValueAt(fila, 6).toString());
-        }
-    }// GEN-LAST:event_tablaVuelosMouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-        DefaultTableModel modelo = (DefaultTableModel) tablaVuelos.getModel();
-        Object[] fila = new Object[7];
-        for (int i = 0; i < vuelo.getListaVuelos().size(); i++) {
-            fila[0] = vuelo.getListaVuelos().get(i).getId();
-            fila[1] = vuelo.getListaVuelos().get(i).getOrigen();
-            fila[2] = vuelo.getListaVuelos().get(i).getDestino();
-            fila[3] = vuelo.getListaVuelos().get(i).getAerolinea();
-            fila[4] = vuelo.getListaVuelos().get(i).getClase();
-            fila[5] = vuelo.getListaVuelos().get(i).getPrecio();
-            fila[6] = vuelo.getListaVuelos().get(i).getNumeroPasajeros();
-            modelo.addRow(fila);
-        } // GEN-LAST:event_jButton2MouseClicked
-    }
-
-    private void eliminarBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_eliminarBtnMouseClicked
-        // TODO add your handling code here:
-        // select de jtable
-        DefaultTableModel modelo = (DefaultTableModel) tablaVuelos.getModel();
-        int fila = tablaVuelos.getSelectedRow();
-        if (fila >= 0) {
-            modelo.removeRow(fila);
-            vuelo.getListaVuelos().remove(fila);
+            nombre.setText(tablaHoteles.getValueAt(fila, 0).toString());
+            pais.setText(tablaHoteles.getValueAt(fila, 1).toString());
+            ciudad.setText(tablaHoteles.getValueAt(fila, 2).toString());
+            precio.setText(tablaHoteles.getValueAt(fila, 3).toString());
+            estrellas.setText(tablaHoteles.getValueAt(fila, 4).toString());
+            telefono.setText(tablaHoteles.getValueAt(fila, 5).toString());
+            idTextField.setText(tablaHoteles.getValueAt(fila, 6).toString());
         } else {
-            javax.swing.JOptionPane.showMessageDialog(null, "Seleccione una fila");
+            javax.swing.JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
         }
-    }// GEN-LAST:event_eliminarBtnMouseClicked
+    }//GEN-LAST:event_tablaHotelesMouseClicked
 
-    private void eliminarTodoBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_eliminarTodoBtnMouseClicked
+    private void actualizarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnMouseClicked
         // TODO add your handling code here:
-        DefaultTableModel modelo = (DefaultTableModel) tablaVuelos.getModel();
-        int filas = tablaVuelos.getRowCount();
+        int i = tablaHoteles.getSelectedRow();
+        if (i >= 0) {
+            tablaHoteles.setValueAt(nombre.getText(), i, 0);
+            tablaHoteles.setValueAt(pais.getText(), i, 1);
+            tablaHoteles.setValueAt(ciudad.getText(), i, 2);
+            tablaHoteles.setValueAt(precio.getText(), i, 3);
+            tablaHoteles.setValueAt(estrellas.getText(), i, 4);
+            tablaHoteles.setValueAt(telefono.getText(), i, 5);
+            tablaHoteles.setValueAt(idTextField.getText(), i, 6);
+            //update in the arraylist
+            hotel.getListaHoteles().get(i).setNombreHotel(idTextField.getText());
+            hotel.getListaHoteles().get(i).setPaisHotel(pais.getText());
+            hotel.getListaHoteles().get(i).setCiudadHotel(ciudad.getText());
+            hotel.getListaHoteles().get(i).setPrecio(Integer.parseInt(precio.getText()));
+            hotel.getListaHoteles().get(i).setNumeroEstrellas(Integer.parseInt(estrellas.getText()));
+            hotel.getListaHoteles().get(i).setTelefonoHotel(Integer.parseInt(telefono.getText()));
+            hotel.getListaHoteles().get(i).setIdHotel(Integer.parseInt(idTextField.getText()));
+            //reset textfields
+            nombre.setText("");
+            pais.setText("");
+            ciudad.setText("");
+            precio.setText("");
+            estrellas.setText("");
+            telefono.setText("");
+            idTextField.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+        }
+    }//GEN-LAST:event_actualizarBtnMouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        MenuAdmin menuAdmin = new MenuAdmin();
+        this.setVisible(false);
+        menuAdmin.setVisible(true);
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void eliminarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnMouseClicked
+        // TODO add your handling code here:
+        int i = tablaHoteles.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) tablaHoteles.getModel();
+        if (i >= 0) {
+            modelo.removeRow(i);
+            hotel.getListaHoteles().remove(i);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+        }
+    }//GEN-LAST:event_eliminarBtnMouseClicked
+
+    private void eliminarTodoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarTodoBtnMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) tablaHoteles.getModel();
+        int filas = tablaHoteles.getRowCount();
 
         for (int i = filas - 1; i >= 0; i--) {
             modelo.removeRow(i);
         }
 
-        vuelo.getListaVuelos().clear();
-    }// GEN-LAST:event_eliminarTodoBtnMouseClicked
+        hotel.getListaHoteles().clear();
+    }//GEN-LAST:event_eliminarTodoBtnMouseClicked
 
-    private void columnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_columnActionPerformed
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
-    }// GEN-LAST:event_columnActionPerformed
+        
+    }//GEN-LAST:event_formMouseClicked
 
-    private void actualizarBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_actualizarBtnMouseClicked
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        int i = tablaVuelos.getSelectedRow();
-        if (i >= 0) {
-            tablaVuelos.setValueAt(idTextField.getText(), i, 0);
-            tablaVuelos.setValueAt(origenTextField.getText(), i, 1);
-            tablaVuelos.setValueAt(destinoTextField.getText(), i, 2);
-            tablaVuelos.setValueAt(aerolineaTextField.getText(), i, 3);
-            tablaVuelos.setValueAt(claseTextField.getText(), i, 4);
-            tablaVuelos.setValueAt(precioTextField.getText(), i, 5);
-            tablaVuelos.setValueAt(numeroPasajerosTextField.getText(), i, 6);
-            // update in the arraylist
-            vuelo.getListaVuelos().get(i).setId(Integer.parseInt(idTextField.getText()));
-            vuelo.getListaVuelos().get(i).setOrigen(origenTextField.getText());
-            vuelo.getListaVuelos().get(i).setDestino(destinoTextField.getText());
-            vuelo.getListaVuelos().get(i).setAerolinea(aerolineaTextField.getText());
-            vuelo.getListaVuelos().get(i).setClase(claseTextField.getText());
-            vuelo.getListaVuelos().get(i).setPrecio(Integer.parseInt(precioTextField.getText()));
-            vuelo.getListaVuelos().get(i).setNumeroPasajeros(Integer.parseInt(numeroPasajerosTextField.getText()));
-            //reset the textfields
-            idTextField.setText("");
-            origenTextField.setText("");
-            destinoTextField.setText("");
-            aerolineaTextField.setText("");
-            claseTextField.setText("");
-            precioTextField.setText("");
-            numeroPasajerosTextField.setText("");
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(null, "Seleccione una fila");
+        DefaultTableModel modelo = (DefaultTableModel) tablaHoteles.getModel();
+        Object[] fila = new Object[7];
+        for (int i = 0; i < hotel.getListaHoteles().size(); i++) {
+            fila[0] = hotel.getListaHoteles().get(i).getNombreHotel();
+            fila[1] = hotel.getListaHoteles().get(i).getPaisHotel();
+            fila[2] = hotel.getListaHoteles().get(i).getCiudadHotel();
+            fila[3] = hotel.getListaHoteles().get(i).getPrecio();
+            fila[4] = hotel.getListaHoteles().get(i).getNumeroEstrellas();
+            fila[5] = hotel.getListaHoteles().get(i).getTelefonoHotel();
+            fila[6] = hotel.getListaHoteles().get(i).getIdHotel();
+            modelo.addRow(fila);
         }
-
-    }// GEN-LAST:event_actualizarBtnMouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton1MouseClicked
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel9MouseClicked
-        MenuAdmin menuAdmin = new MenuAdmin();
-        this.setVisible(false);
-        menuAdmin.setVisible(true);
-    }// GEN-LAST:event_jLabel9MouseClicked
+    }//GEN-LAST:event_jButton2MouseClicked
 
     private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel9MousePressed
-        jLabel9.setForeground(Color.gray);
+        // TODO add your handling code here:
     }// GEN-LAST:event_jLabel9MousePressed
 
     private void jLabel9MouseReleased(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel9MouseReleased
-        jLabel9.setForeground(Color.white);
-    }// GEN-LAST:event_jLabel9MouseReleased
-
-    private void actualizarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_actualizarBtnActionPerformed
         // TODO add your handling code here:
-    }// GEN-LAST:event_actualizarBtnActionPerformed
-
-    private void agregarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_agregarBtnActionPerformed
-
-    }// GEN-LAST:event_agregarBtnActionPerformed
+    }// GEN-LAST:event_jLabel9MouseReleased
 
     private void agregarBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_agregarBtnMouseClicked
         // TODO add your handling code here:
-        Vuelo item = new Vuelo(
-                origenTextField.getText(),
-                destinoTextField.getText(),
-                aerolineaTextField.getText(), claseTextField.getText(),
-                Integer.parseInt(idTextField.getText()),
-                Integer.parseInt(precioTextField.getText()),
-                Integer.parseInt(numeroPasajerosTextField.getText()));
+        Hotel data = new Hotel(nombre.getText(), pais.getText(), ciudad.getText(),
+                Integer.parseInt(precio.getText()), Integer.parseInt(estrellas.getText()),
+                Integer.parseInt(telefono.getText()), Integer.parseInt(idTextField.getText()));
 
-        if (idTextField.getText().isEmpty() || origenTextField.getText().isEmpty()
-                || destinoTextField.getText().isEmpty() || aerolineaTextField.getText().isEmpty()
-                || claseTextField.getText().isEmpty() || precioTextField.getText().isEmpty()
-                || numeroPasajerosTextField.getText().isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(null, "Faltan datos por llenar");
+        if (nombre.getText().isEmpty()
+                || pais.getText().isEmpty()
+                || ciudad.getText().isEmpty()
+                || precio.getText().isEmpty()
+                || estrellas.getText().isEmpty()
+                || telefono.getText().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Faltan datos");
         } else {
-            DefaultTableModel model = (DefaultTableModel) tablaVuelos.getModel();
-            model.addRow(new Object[] { item.getId(), item.getOrigen(), item.getDestino(), item.getAerolinea(),
-                    item.getClase(), item.getPrecio(), item.getNumeroPasajeros() });
-            vuelo.getListaVuelos().add(item);
-            // reset the textfields
-            origenTextField.setText("");
-            destinoTextField.setText("");
-            aerolineaTextField.setText("");
-            claseTextField.setText("");
-            precioTextField.setText("");
-            numeroPasajerosTextField.setText("");
+            DefaultTableModel model = (DefaultTableModel) tablaHoteles.getModel();
+            model.addRow(new Object[] { data.getNombreHotel(),
+                    data.getPaisHotel(), data.getCiudadHotel(), data.getPrecio(),
+                    data.getNumeroEstrellas(), data.getTelefonoHotel(), data.getIdHotel() });
+            hotel.getListaHoteles().add(data);
+            //reset textfields
+            nombre.setText("");
+            pais.setText("");
+            ciudad.setText("");
+            precio.setText("");
+            estrellas.setText("");
+            telefono.setText("");
             idTextField.setText("");
-            // simple test to show the data in the arraylist
-            for (int i = 0; i < vuelo.getListaVuelos().size(); i++) {
-                System.out.println("---------------------------");
-                System.out.println(vuelo.getListaVuelos().get(i).getId());
-                System.out.println(vuelo.getListaVuelos().get(i).getOrigen());
-                System.out.println(vuelo.getListaVuelos().get(i).getDestino());
-                System.out.println(vuelo.getListaVuelos().get(i).getAerolinea());
-                System.out.println(vuelo.getListaVuelos().get(i).getClase());
-                System.out.println(vuelo.getListaVuelos().get(i).getPrecio());
-                System.out.println(vuelo.getListaVuelos().get(i).getNumeroPasajeros());
-                System.out.println("---------------------------\n");
-            }
-            // ? vuelo.setListaVuelos(vuelo.getListaVuelos());
         }
 
     }// GEN-LAST:event_agregarBtnMouseClicked
@@ -707,35 +677,38 @@ public class VerVuelos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerVuelos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerHoteles.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerVuelos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerHoteles.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerVuelos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerHoteles.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerVuelos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerHoteles.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         }
         // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VerVuelos().setVisible(true);
+                new VerHoteles().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarBtn;
-    private javax.swing.JTextField aerolineaTextField;
     private javax.swing.JLabel aerolineaTxt;
     private javax.swing.JButton agregarBtn;
-    private javax.swing.JTextField claseTextField;
+    private javax.swing.JTextField ciudad;
     private javax.swing.JLabel claseTxt;
-    private javax.swing.JTextField destinoTextField;
     private javax.swing.JLabel destinoTxt;
     private javax.swing.JButton eliminarBtn;
     private javax.swing.JButton eliminarTodoBtn;
+    private javax.swing.JTextField estrellas;
     private javax.swing.JLabel headerTxt;
     private javax.swing.JTextField idTextField;
     private javax.swing.JLabel idTxt;
@@ -752,12 +725,13 @@ public class VerVuelos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField numeroPasajerosTextField;
+    private javax.swing.JTextField nombre;
     private javax.swing.JLabel numeroPasajerosTxt;
-    private javax.swing.JTextField origenTextField;
     private javax.swing.JLabel origenTxt;
-    private javax.swing.JTextField precioTextField;
+    private javax.swing.JTextField pais;
+    private javax.swing.JTextField precio;
     private javax.swing.JLabel precioTxt;
-    private javax.swing.JTable tablaVuelos;
+    private javax.swing.JTable tablaHoteles;
+    private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 }
