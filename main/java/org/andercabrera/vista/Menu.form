@@ -154,6 +154,9 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Ver vuelos"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="vuelosTextMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -191,6 +194,9 @@
                   <Color id="Cursor de Mano"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hotelesTextMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

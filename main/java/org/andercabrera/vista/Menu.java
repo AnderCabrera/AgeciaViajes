@@ -75,6 +75,11 @@ public class Menu extends javax.swing.JFrame {
         vuelosText.setForeground(new java.awt.Color(255, 255, 255));
         vuelosText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vuelosText.setText("Ver vuelos");
+        vuelosText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vuelosTextMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelVuelosLayout = new javax.swing.GroupLayout(panelVuelos);
         panelVuelos.setLayout(panelVuelosLayout);
@@ -94,6 +99,11 @@ public class Menu extends javax.swing.JFrame {
         hotelesText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hotelesText.setText("Ver hoteles");
         hotelesText.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        hotelesText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hotelesTextMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelHotelesLayout = new javax.swing.GroupLayout(panelHoteles);
         panelHoteles.setLayout(panelHotelesLayout);
@@ -189,6 +199,20 @@ public class Menu extends javax.swing.JFrame {
     private void signoutTextMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutTextMouseReleased
         signoutText.setForeground(Color.white);
     }//GEN-LAST:event_signoutTextMouseReleased
+
+    private void vuelosTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vuelosTextMouseClicked
+        // TODO add your handling code here:
+        VuelosCliente cliente = new VuelosCliente();
+        this.setVisible(false);
+        cliente.setVisible(true);
+    }//GEN-LAST:event_vuelosTextMouseClicked
+
+    private void hotelesTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hotelesTextMouseClicked
+        // TODO add your handling code here:
+        HotelesCliente cliente = new HotelesCliente();
+        this.setVisible(false);
+        cliente.setVisible(true);
+    }//GEN-LAST:event_hotelesTextMouseClicked
 
     private void signoutTextMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_signoutTextMouseClicked
         Login login = new Login();
