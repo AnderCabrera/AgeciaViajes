@@ -226,9 +226,11 @@ public class Login extends javax.swing.JFrame {
         controlador.login(userTextField.getText(), String.valueOf(passwordTextField.getText()));
 
         if (userTextField.getText().equals(user) && String.valueOf(passwordTextField.getText()).equals(password)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido " + user);
             this.setVisible(false);
             menuAdmin.setVisible(true);
         } else if (controlador.getBooleanLogin() == true) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido " + userTextField.getText());
             this.setVisible(false);
             menu.setVisible(true);
         } else {

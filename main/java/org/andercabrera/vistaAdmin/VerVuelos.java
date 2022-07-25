@@ -550,6 +550,7 @@ public class VerVuelos extends javax.swing.JFrame {
             fila[5] = vuelo.getListaVuelos().get(i).getPrecio();
             fila[6] = vuelo.getListaVuelos().get(i).getNumeroPasajeros();
             modelo.addRow(fila);
+            jButton2.setVisible(false);
         } // GEN-LAST:event_jButton2MouseClicked
     }
 

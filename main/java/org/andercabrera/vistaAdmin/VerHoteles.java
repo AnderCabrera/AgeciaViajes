@@ -696,6 +696,7 @@ public class VerHoteles extends javax.swing.JFrame {
             fila[6] = hotel.getListaHoteles().get(i).getIdHotel();
             modelo.addRow(fila);
         }
+        jButton2.setVisible(false);
     }// GEN-LAST:event_jButton2MouseClicked
 
     private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel9MousePressed

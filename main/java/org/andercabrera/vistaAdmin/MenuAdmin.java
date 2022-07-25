@@ -158,6 +158,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Ver usuarios");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -238,6 +243,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         this.setVisible(false);
         verHoteles.setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        MostrarUsuarios usuarios = new MostrarUsuarios();
+        this.setVisible(false);
+        usuarios.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     private void signoutTextMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_signoutTextMouseClicked
         Login login = new Login();

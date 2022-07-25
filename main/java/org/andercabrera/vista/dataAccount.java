@@ -152,8 +152,13 @@ public class dataAccount extends javax.swing.JFrame {
             controlador.createUser(name);
             controlador.createPassword(password);
             javax.swing.JOptionPane.showMessageDialog(this, "Usuario creado");
-            this.setVisible(false);
-            login.setVisible(true);
+            if (javax.swing.JOptionPane.showConfirmDialog(this, "¿Deseas agregar otro usuario?", "Java", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
+                nameTextField.setText("");
+                passwordTextField.setText("");
+            } else {
+                this.setVisible(false);
+                login.setVisible(true);
+            }
         }
     }// GEN-LAST:event_createUserMouseClicked
 

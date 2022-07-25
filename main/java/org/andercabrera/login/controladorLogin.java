@@ -36,6 +36,15 @@ public class controladorLogin {
     // public void addUserLogin(Login login) {
     //     listaLogin.add(login);
     // }
+
+    public ArrayList<String> getUsers() {
+        return users;
+    }
+
+    public ArrayList<String> getPasswords() {
+        return passwords;
+    }
+    
     public void mostrarUsuario(Login login) {
         System.out.println("Usuario: " + login.getUser());
         System.out.println("Contraseña: " + login.getPassword());

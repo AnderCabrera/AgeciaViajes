@@ -232,6 +232,7 @@ public class HotelesCliente extends javax.swing.JFrame {
             fila[5] = hotel.getListaHoteles().get(i).getTelefonoHotel();
             fila[6] = hotel.getListaHoteles().get(i).getIdHotel();
             modelo.addRow(fila);
+            jLabel13.setVisible(false);
         }
     }//GEN-LAST:event_jLabel13MouseClicked
 

@@ -4,12 +4,15 @@
  */
 package org.andercabrera.vistaAdmin;
 
+import javax.swing.table.DefaultTableModel;
+import org.andercabrera.login.*;
 /**
  *
  * @author Deran
  */
 public class MostrarUsuarios extends javax.swing.JFrame {
 
+    controladorLogin login = controladorLogin.getInstance();
     /**
      * Creates new form MostrarUsuarios
      */
@@ -128,14 +131,14 @@ public class MostrarUsuarios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Pais", "Ciudad", "Precio", "Estrellas", "Telefono", "Id"
+                "User", "Password"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -218,16 +221,12 @@ public class MostrarUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) tablaVuelos.getModel();
         Object[] fila = new Object[7];
-        for (int i = 0; i < hotel.getListaHoteles().size(); i++) {
-            fila[0] = hotel.getListaHoteles().get(i).getNombreHotel();
-            fila[1] = hotel.getListaHoteles().get(i).getPaisHotel();
-            fila[2] = hotel.getListaHoteles().get(i).getCiudadHotel();
-            fila[3] = hotel.getListaHoteles().get(i).getPrecio();
-            fila[4] = hotel.getListaHoteles().get(i).getNumeroEstrellas();
-            fila[5] = hotel.getListaHoteles().get(i).getTelefonoHotel();
-            fila[6] = hotel.getListaHoteles().get(i).getIdHotel();
+        for (int i = 0; i < login.getUsers().size(); i++) {
+            fila[0] = login.getUsers().get(i);
+            fila[1] = login.getPasswords().get(i);
             modelo.addRow(fila);
         }
+        jLabel13.setVisible(false);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MousePressed
@@ -240,7 +239,7 @@ public class MostrarUsuarios extends javax.swing.JFrame {
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
-        Menu menu = new Menu();
+        MenuAdmin menu = new MenuAdmin();
         this.setVisible(false);
         menu.setVisible(true);
     }//GEN-LAST:event_jLabel12MouseClicked

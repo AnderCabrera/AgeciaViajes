@@ -256,6 +256,7 @@ public class VuelosCliente extends javax.swing.JFrame {
             fila[5] = vuelo.getListaVuelos().get(i).getPrecio();
             fila[6] = vuelo.getListaVuelos().get(i).getNumeroPasajeros();
             modelo.addRow(fila);
+            jLabel13.setVisible(false);
         }
 
     }//GEN-LAST:event_jLabel13MouseClicked
