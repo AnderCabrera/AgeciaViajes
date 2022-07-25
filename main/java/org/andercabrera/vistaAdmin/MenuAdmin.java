@@ -39,14 +39,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         principalPanel = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
         headerText = new javax.swing.JLabel();
-        panelVuelos = new javax.swing.JPanel();
-        vuelosText = new javax.swing.JLabel();
         panelHoteles = new javax.swing.JPanel();
         hotelesText = new javax.swing.JLabel();
         panelSignout = new javax.swing.JPanel();
         signoutText = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -54,7 +50,6 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setResizable(false);
 
         principalPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -76,30 +71,6 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(headerText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        panelVuelos.setBackground(new java.awt.Color(0, 204, 102));
-        panelVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        vuelosText.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        vuelosText.setForeground(new java.awt.Color(255, 255, 255));
-        vuelosText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        vuelosText.setText("Agregar vuelos");
-        vuelosText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                vuelosTextMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelVuelosLayout = new javax.swing.GroupLayout(panelVuelos);
-        panelVuelos.setLayout(panelVuelosLayout);
-        panelVuelosLayout.setHorizontalGroup(
-            panelVuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(vuelosText, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-        );
-        panelVuelosLayout.setVerticalGroup(
-            panelVuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(vuelosText, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
         );
 
         panelHoteles.setBackground(new java.awt.Color(0, 204, 102));
@@ -156,24 +127,6 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addComponent(signoutText, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 102));
-
-        jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Agregar hoteles");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-        );
-
         jPanel2.setBackground(new java.awt.Color(0, 204, 102));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -219,35 +172,28 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                        .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelHoteles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelHoteles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(112, 112, 112))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
                         .addComponent(panelSignout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))))
+                        .addGap(58, 58, 58))))
         );
         principalPanelLayout.setVerticalGroup(
             principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(principalPanelLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(panelVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addComponent(panelHoteles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(38, 38, 38)
                 .addComponent(panelSignout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,11 +219,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void signoutTextMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutTextMouseReleased
         signoutText.setForeground(Color.white);
     }//GEN-LAST:event_signoutTextMouseReleased
-
-    private void vuelosTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vuelosTextMouseClicked
-        this.setVisible(false);
-        vuelos.setVisible(true);
-    }//GEN-LAST:event_vuelosTextMouseClicked
 
     private void hotelesTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hotelesTextMouseClicked
         this.setVisible(false);
@@ -334,17 +275,13 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel header;
     private javax.swing.JLabel headerText;
     private javax.swing.JLabel hotelesText;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel panelHoteles;
     private javax.swing.JPanel panelSignout;
-    private javax.swing.JPanel panelVuelos;
     private javax.swing.JPanel principalPanel;
     private javax.swing.JLabel signoutText;
-    private javax.swing.JLabel vuelosText;
     // End of variables declaration//GEN-END:variables
 }

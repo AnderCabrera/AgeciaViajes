@@ -4,12 +4,15 @@
  */
 package org.andercabrera.sistema;
 
+import org.andercabrera.vista.*;
+
 /**
  * @author Deran
  */
 
 public class Proyecto {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Login login = new Login();
+        login.setVisible(true);
     }
 }

@@ -19,6 +19,16 @@ public class Vuelo {
     private int precio;
     private int numeroPasajeros;
     ArrayList<Vuelo> listaVuelos = new ArrayList<Vuelo>();
+
+    //singleton
+    private static Vuelo instance = null;
+
+    public static Vuelo getInstance() {
+        if (instance == null) {
+            instance = new Vuelo();
+        }
+        return instance;
+    }
     
     public Vuelo() {
     }
@@ -89,9 +99,13 @@ public class Vuelo {
         this.numeroPasajeros = numeroPasajeros;
     }
 
-    public int getIdVuelo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Vuelo> setListaVuelos(Vuelo item) {
+        listaVuelos.add(item);
+        return listaVuelos;
     }
 
+    public ArrayList<Vuelo> getListaVuelos() {
+        return listaVuelos;
+    }
     
 }
